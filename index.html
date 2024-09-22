@@ -3,30 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Text to Speech Application</title>
+    <title>Voice to Text and Text to Voice</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
     <div class="container">
-      <h1>ACSAT Speech Translator</h1>
+      <h1>Speech Translator</h1>
 
+      <!-- Voice to Text -->
       <div class="section">
-        <h2>Speech to Text</h2>
+        <h2>Voice to Text</h2>
         <button id="start-recognition">Start Voice Recognition</button>
-        <p id="transription">Your transcription will appear here ...</p>
+        <p id="transcription">Your transcription will appear here...</p>
       </div>
 
+      <!-- Text to Voice -->
       <div class="section">
-        <h2>Text to Speech</h2>
+        <h2>Text to Voice</h2>
         <textarea
           id="text-to-speak"
           rows="4"
-          placeholder="Type your text here ..."
+          placeholder="Type text here..."
         ></textarea>
         <button id="speak-text">Speak Text</button>
       </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>

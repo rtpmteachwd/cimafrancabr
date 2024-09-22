@@ -1,16 +1,16 @@
 // Voice to Text functionality
-const startRecognitionBtn = document.getElementById('start-recognition');
-const transcription = document.getElementById('transcription');
+const startRecognitionBtn = document.getElementById("start-recognition");
+const transcription = document.getElementById("transcription");
 
-if ('webkitSpeechRecognition' in window) {
+if ("webkitSpeechRecognition" in window) {
   const recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   recognition.interimResults = false;
-  recognition.lang = 'en-US';
+  recognition.lang = "en-US";
 
-  startRecognitionBtn.addEventListener('click', () => {
+  startRecognitionBtn.addEventListener("click", () => {
     recognition.start();
-    transcription.innerHTML = 'Listening...';
+    transcription.innerHTML = "Listening...";
   });
 
   recognition.onresult = function (event) {
@@ -19,20 +19,19 @@ if ('webkitSpeechRecognition' in window) {
   };
 
   recognition.onerror = function (event) {
-    transcription.innerHTML = 'Error occurred in recognition: ' + event.error;
+    transcription.innerHTML = "Error occurred in recognition: " + event.error;
   };
-
 } else {
-  transcription.innerHTML = 'Speech Recognition API not supported in this browser.';
+  transcription.innerHTML =
+    "Speech Recognition API not supported in this browser.";
 }
 
+const speakTextBtn = document.getElementById("speak-text");
+const textToSpeak = document.getElementById("text-to-speak");
 
-const speakTextBtn = document.getElementById('speak-text');
-const textToSpeak = document.getElementById('text-to-speak');
-
-speakTextBtn.addEventListener('click', () => {
+speakTextBtn.addEventListener("click", () => {
   const text = textToSpeak.value;
-  if (text.trim() !== '') {
+  if (text.trim() !== "") {
     const utterance = new SpeechSynthesisUtterance(text);
     window.speechSynthesis.speak(utterance);
   }
